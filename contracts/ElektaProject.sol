@@ -18,7 +18,15 @@ contract ElektaProject {
 
     address[] public projectMembers;
 
-     
+    event ProjectFunded(FundInfo fundInfo, uint256 amount);
+
+    enum FundInfo{Funded, Withdrawn, Suspended}
+
+    //receive fund to this project
+    receive() external payable{
+        emit ProjectFunded(FundInfo.Funded, msg.value);
+    }
+
 
     constructor (string memory _projectName, string memory _projectDescriptions) public {
         require(msg.sender != address(0));
@@ -48,6 +56,7 @@ contract ElektaProject {
     function addProjectMembers(address member) public {
         projectMembers.push(member);
     }
+
 
    
 }
