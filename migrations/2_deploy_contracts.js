@@ -1,5 +1,5 @@
-const SimpleStorage = artifacts.require('./SimpleStorage.sol')
+const ElektaMain = artifacts.require('./ElektaMain.sol')
 
 module.exports = function (deployer) {
-  deployer.deploy(SimpleStorage)
+  deployer.deploy(ElektaMain)
 }
